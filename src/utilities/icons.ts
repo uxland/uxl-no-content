@@ -14,5 +14,4 @@ const icons = () => html`
     </svg>
   </iron-iconset-svg>
 `;
-
 export const iconTemplate: () => TemplateResult = icons;
