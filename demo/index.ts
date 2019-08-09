@@ -1,0 +1,13 @@
+// import { UxlAutocomplete } from "../src/components/uxl-autocomplete/uxl-autocomplete";
+// const uxlAutocomplete = new UxlAutocomplete();
+// const list = [];
+// uxlAutocomplete.list = list;
+// uxlAutocomplete.trackBy = ["name", "value"];
+// uxlAutocomplete.value = "ale";
+// uxlAutocomplete.term = "ale";
+// const content = document.querySelector(".content");
+// content.appendChild(uxlAutocomplete);
+import { UxlNoContent } from "../src/components/uxl-no-content/uxl-no-content";
+const UxlNoContentComponent = new UxlNoContent();
+const content = document.querySelector(".content");
+content.appendChild(UxlNoContentComponent);

@@ -1,0 +1,30 @@
+@import "~@uxland/uxl-style-utilities/src/flex-layout-styles.scss";
+@import "~@uxland/uxl-style-utilities/src/uxl-units-styles.scss";
+
+:host {
+  @include layout-vertical;
+  height: 100%;
+  flex: 1 1 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2efef;
+}
+
+.icon {
+  padding: 16px;
+
+  .icon__slot {
+    iron-icon {
+      width: 96px;
+      height: 96px;
+      color: #665eff;
+    }
+  }
+}
+
+.message {
+  .message__slot {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
