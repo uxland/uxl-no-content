@@ -86,7 +86,8 @@ const renderHtmlPlugins = () => [
     showErrors: true,
     paths: {
       webcomponents: "/vendor/webcomponents-loader.js"
-    }
+    },
+    chunksSortMode: "none"
   }),
   new HtmlWebpackExcludeAssetsPlugin(),
   new ScriptExtHtmlWebpackPlugin({
@@ -109,33 +110,24 @@ module.exports = {
   devtool: "cheap-eval-source-map",
   output: {
     path: OUTPUT_PATH,
-    filename: "src/[name].[hash].bundle.js",
+    filename: "[name].[hash].bundle.js",
     pathinfo: true,
     publicPath: "/"
   },
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        include: join(__dirname, "src/components"),
+        test: /\.css|\.s(c|a)ss$/,
         use: [
           {
-            loader: "to-string-loader",
+            loader: "lit-scss-loader",
             options: {
-              sourceMap: true
+              minify: true // defaults to false
             }
           },
-          {
-            loader: "typings-for-css-modules-loader",
-            options: {
-              modules: true,
-              namedExport: false,
-              sourceMap: false,
-              getLocalIdent: (context, localIdentName, localName, options) => {
-                return localName;
-              }
-            }
-          },
+          "css-modules-typescript-loader",
+          "extract-loader",
+          "css-loader",
           {
             loader: "sass-loader",
             options: {
